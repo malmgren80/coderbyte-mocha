@@ -1,0 +1,13 @@
+{
+    "name": "coderbyte-mocha",
+    "description": "Test stub for running test against coder byte",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+    },
+    "devDependencies": {
+        "mocha": "*",
+        "should": "*",
+        "debug": "*"
+    }
+}
