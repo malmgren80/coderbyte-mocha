@@ -33,5 +33,14 @@ describe('coderbyte', function(){
 	        coderbyte.letterChanges('fun times!').should.equal('gvO Ujnft!');
 	    });
 	});
-});
 
+	describe('simpleAdding', function(){
+	    it('should add up to num', function(){
+	    	coderbyte.simpleAdding(12).should.equal(78);
+	    });
+
+	    it('should add up to num', function(){
+	    	coderbyte.simpleAdding(140).should.equal(9870);
+	    });
+	});
+});

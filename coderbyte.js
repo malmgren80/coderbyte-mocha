@@ -26,3 +26,13 @@ exports.letterChanges = function(str) {
 
 	return modifiedStr;
 };
+
+exports.simpleAdding = function(num) {
+	var counter = 1;
+	var sum = 0;
+	while(counter <= num) {
+		sum += counter;
+		counter++;
+	}
+	return sum;
+};
