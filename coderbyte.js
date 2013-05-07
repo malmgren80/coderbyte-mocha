@@ -36,3 +36,16 @@ exports.simpleAdding = function(num) {
 	}
 	return sum;
 };
+
+exports.letterCapitalize = function(str) {
+	var words = str.split(' ');
+	var capitalized = [];
+	for (var word in words) {
+		var newWord = words[word].length > 0 
+			? words[word][0].toUpperCase() + words[word].substring(1)	
+			: '';
+
+		capitalized.push(newWord);
+	}
+	return capitalized.join(' ');
+};

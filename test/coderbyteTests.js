@@ -43,4 +43,22 @@ describe('coderbyte', function(){
 	    	coderbyte.simpleAdding(140).should.equal(9870);
 	    });
 	});
+
+	describe('letterCapitalize', function(){
+	    it('should capitalize single letter', function(){
+	    	coderbyte.letterCapitalize('a').should.equal('A');
+	    });
+
+		it('should capitalize single letters', function(){
+	    	coderbyte.letterCapitalize('a b').should.equal('A B');
+	    });
+
+	    it('should capitalize first letter in each word', function(){
+	    	coderbyte.letterCapitalize('chuck norris').should.equal('Chuck Norris');
+	    });
+
+	    it('should not capitalize when not letter', function(){
+	    	coderbyte.letterCapitalize('!chuck #norris').should.equal('!chuck #norris');
+	    });
+	});
 });
