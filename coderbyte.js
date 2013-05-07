@@ -10,27 +10,15 @@ exports.firstFactorial = function(num) {
 };
 
 exports.letterChanges = function(str) {
-	var modifiedStr = '';
-
 	var nextLetter = function(character) {
-		var letters = 'abcdefghijklmnopqrstuvwxyz';
-		var vowels = 'aeiou';
+		var oldLetters = 'abcdefghijklmnopqrstuvwxyz';
+		var newLetters = 'bcdEfghIjklmnOpqrstUvwxyzA';
+		
+		var index = oldLetters.indexOf(character.toLowerCase());
+		return index >= 0 ? newLetters[index] : character;
+	}
 
-		var lowerCaseChar = character.toLowerCase();
-		var index = letters.indexOf(lowerCaseChar);
-		if (index < 0) {
-			return character;
-		}
-
-		var newChar = letters[lowerCaseChar === 'z' ? 0 : index + 1];
-
-		var vowelIndex = vowels.indexOf(newChar);
-		if (vowelIndex >= 0) {
-			return vowels[vowelIndex].toUpperCase();
-		}
-
-		return newChar;
-	} 
+	var modifiedStr = ''; 
 
 	for (var character in str) {
 		modifiedStr += nextLetter(str[character]);
