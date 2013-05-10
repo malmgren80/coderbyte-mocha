@@ -49,3 +49,40 @@ exports.letterCapitalize = function(str) {
 	}
 	return capitalized.join(' ');
 };
+
+exports.simpleSymbols = function(str) {
+	var	letters = 'abcdefghijklmnopqrstuvwxyz';
+
+	var isValidChar = function (char) {
+		var validChars = '+' + letters;
+		return validChars.indexOf(char) !== -1;
+	}
+	
+	var getValidChars = function(text) {
+		var validChars = '';
+
+		for (var char in text) {
+			if (isValidChar(text[char])) {
+				validChars += text[char];
+			}
+		}
+		return validChars;
+	}
+
+	var isValidInput = function(text) {
+		var isValid = false;
+
+		for (var char in text) {
+			if (letters.indexOf(text[char]) === -1) {
+				continue;
+			}
+
+			if (text[char - 1] !== '+' && text[char + 1] !== '+') {
+				return false;
+			}
+			isValid = true;
+		}
+		return isValid;
+	}
+	return isValidInput(getValidChars(str)).toString().toLowerCase();
+}

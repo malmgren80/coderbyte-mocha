@@ -61,4 +61,18 @@ describe('coderbyte', function(){
 	    	coderbyte.letterCapitalize('!chuck #norris').should.equal('!chuck #norris');
 	    });
 	});
+
+	describe('simpleSymbols', function(){
+	    it('should return false when empty', function(){
+	    	coderbyte.simpleSymbols('').should.equal('false');
+	    });
+
+		it('input 1', function(){
+	    	coderbyte.simpleSymbols('+d+=3=+s+').should.equal('true');
+	    });
+
+	    it('input 2', function(){
+	    	coderbyte.simpleSymbols('f++d+').should.equal('false');
+	    });
+	});
 });
