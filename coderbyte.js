@@ -51,38 +51,25 @@ exports.letterCapitalize = function(str) {
 };
 
 exports.simpleSymbols = function(str) {
-	var	letters = 'abcdefghijklmnopqrstuvwxyz';
-
-	var isValidChar = function (char) {
-		var validChars = '+' + letters;
-		return validChars.indexOf(char) !== -1;
-	}
+	var cleanedInput = str.replace(/[^a-zA-Z\+]/g, '');
 	
-	var getValidChars = function(text) {
-		var validChars = '';
-
-		for (var char in text) {
-			if (isValidChar(text[char])) {
-				validChars += text[char];
-			}
-		}
-		return validChars;
-	}
-
 	var isValidInput = function(text) {
-		var isValid = false;
+		var i, 
+			isValid = false, 
+			lettersRegExp = new RegExp('[a-zA-Z]');
 
-		for (var char in text) {
-			if (letters.indexOf(text[char]) === -1) {
+		for ( i = 0 ; i < text.length ; i++) {
+			if (!lettersRegExp.test(text[i])) {
 				continue;
 			}
-
-			if (text[char - 1] !== '+' && text[char + 1] !== '+') {
+			if (i === 0 || i === text.length-1 || 
+				text[i-1] !== '+' || text[i+1] !== '+') {
 				return false;
 			}
 			isValid = true;
 		}
 		return isValid;
 	}
-	return isValidInput(getValidChars(str)).toString().toLowerCase();
+	return isValidInput(cleanedInput).toString().toLowerCase();
 }
+				

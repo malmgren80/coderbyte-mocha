@@ -67,12 +67,24 @@ describe('coderbyte', function(){
 	    	coderbyte.simpleSymbols('').should.equal('false');
 	    });
 
+	    it('should return false when letter is missing', function(){
+	    	coderbyte.simpleSymbols('+=325+=+').should.equal('false');
+	    });
+
 		it('input 1', function(){
 	    	coderbyte.simpleSymbols('+d+=3=+s+').should.equal('true');
 	    });
 
 	    it('input 2', function(){
 	    	coderbyte.simpleSymbols('f++d+').should.equal('false');
+	    });
+
+	    it('input 3', function(){
+	    	coderbyte.simpleSymbols('+d===+a+').should.equal('true');
+	    });
+	    
+	    it('input 4', function(){
+	    	coderbyte.simpleSymbols('+a=').should.equal('false');
 	    });
 	});
 });
