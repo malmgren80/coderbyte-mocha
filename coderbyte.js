@@ -72,4 +72,7 @@ exports.simpleSymbols = function(str) {
 	}
 	return isValidInput(cleanedInput).toString().toLowerCase();
 }
-				
+	
+exports.checkNums = function(num1, num2) {
+	return num1 === num2 ? -1 : num2 > num1;
+}			

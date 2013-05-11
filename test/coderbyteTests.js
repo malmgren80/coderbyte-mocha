@@ -87,4 +87,20 @@ describe('coderbyte', function(){
 	    	coderbyte.simpleSymbols('+a=').should.equal('false');
 	    });
 	});
+
+	describe('checkNums', function(){
+	    it('should return -1 when equal', function(){
+	    	coderbyte.checkNums(5, 5).should.equal(-1);
+	    });
+
+	    it('should return true when num2 is larger than num1', function(){
+	    	coderbyte.checkNums(1, 2).should.equal(true);
+	    });
+
+	    it('should return false when num2 is smaller than num1', function(){
+	    	coderbyte.checkNums(2, 1).should.equal(false);
+	    });
+	});
+
+
 });
